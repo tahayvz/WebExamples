@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style-sheet.css"/>
+</head>
+<body>
+	<a href="../index.html">Home Page</a><br/>
+	<canvas id="Canvas-1" width="640" height="480" style="border:1px solid;">
+		This browser does not support canvas.
+	</canvas>
+	<script >
+		var canvas1 = document.getElementById("Canvas-1");
+		var drawing = canvas1.getContext("2d");
+		drawing.beginPath();
+		drawing.moveTo(0,0);
+		drawing.lineTo(640,480);
+		drawing.moveTo(640,0);
+		drawing.lineTo(0,480);
+		drawing.moveTo(370,240);
+		drawing.arc(320,240,50,0,2*Math.PI);
+		drawing.fillText("This is a text in a canvas",263,310);
+		drawing.font ="15px Arial";
+		drawing.fillText("Font size 15px Font Family Arial",216,340);
+		drawing.fillRect(220,25,200,100);//x, y, width, height
+		drawing.stroke();
+	</script>
+</body>
+</html>

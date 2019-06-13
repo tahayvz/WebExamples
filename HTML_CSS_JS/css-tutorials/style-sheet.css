@@ -1,0 +1,13 @@
+html *{
+	font-family:Arial;
+}
+body{
+	background-image:url("../images/paper-texture-2.jpg");
+}
+td {
+	font-size:20px;
+}
+a:hover{
+	color:red;
+	font-size: 17px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style-sheet.css"/>
+	</head>
+	<body>
+		<img id="img" src="../images/paper-texture-2.jpg">
+		<a href="../index.html">Home Page</a><br/>
+		<canvas id="Canvas-1" width="640" height="480" style="border:1px solid;">
+		This browser does not support canvas.
+		</canvas>
+		<script >
+			var img = document.getElementById("img");
+			img.style.display = "none";
+			var canvas = document.getElementById("Canvas-1");
+			var drawing = canvas.getContext("2d");
+			var width = canvas.width;
+			var height = canvas.height;
+			var x = canvas.width/2; // starting point width
+			var y = canvas.height/2; // starting point height
+			var dx = 5; //increasing level of width
+			var dy = 5;	//increasing level of height
+			var radius =10 ;
+			var xwall = width-radius; //end of walls width
+			var ywall = height-radius; //end of walls height
+			function cleaner(){
+				drawing.beginPath();
+				drawing.fillStyle="#FFFFFF";
+				drawing.drawImage(img,0,0);
+				drawing.closePath();
+				//drawing.fill();
+			}
+			function bouncingBall(){
+				cleaner();
+				drawing.beginPath();
+				drawing.arc(x,y,radius,0,2*Math.PI);
+				drawing.closePath();
+				x+=dx; // increase width
+				y+=dy; // increase height
+				//drawing.stroke();//finish the draw
+				drawing.fillStyle="#12A18C"; //fill inside with color
+				drawing.fill();//fill inside
+				if(x>xwall||x<radius){
+					dx*=-1;
+				}
+				if(y>ywall||y<radius){
+					dy*=-1;
+				}
+			}
+			setInterval(bouncingBall,14);			
+		</script>
+	</body>
+</html>
